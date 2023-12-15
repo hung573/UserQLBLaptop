@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">   
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this template
+-->
+
+
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database setting -->
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/laptop</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password"></property>
+      <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">100</property>    
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+        <!-- Disable the second-level cache --> 
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property> 
+        <!-- Show all executed SQL to console -->
+        <property name="show_sql">true</property>
+        <!-- Entity mapping -->
+        <!-- <mapping class="demopl.DAL.Course" /> -->
+        
+        <mapping class = "Beans.DonHang"/>
+        <mapping class = "Beans.DonHangChiTiet"/>
+        <mapping class = "Beans.HoaDon"/>
+        <mapping class = "Beans.HoaDonChiTiet"/>
+        <mapping class = "Beans.Image"/>
+        <mapping class = "Beans.Kho"/>
+        <mapping class = "Beans.KhuyenMai"/>
+        <mapping class = "Beans.Person"/>
+        <mapping class = "Beans.Account"/>
+        <mapping class = "Beans.Person_KhachHang"/>
+        <mapping class = "Beans.Person_NhaCungCap"/>
+        <mapping class = "Beans.Person_NhanVien"/>
+        <mapping class = "Beans.Phieu"/>
+        <mapping class = "Beans.PhieuChiTiet"/>
+        <mapping class = "Beans.PhieuNhap"/>
+        <mapping class = "Beans.PhieuXuat"/>
+        <mapping class = "Beans.SanPham"/>
+        
+    </session-factory>
+</hibernate-configuration>
+
+
