@@ -85,55 +85,66 @@
                 <div class="container">
                     <div class="row">
                         <jsp:include page="_Menu.jsp"></jsp:include>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- header bottom end -->
-        </header>
-        <!-- end header -->
-        <!-- inner page banner -->
-        <div id="inner_banner" class="section inner_banner_section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="full">
-                            <div class="title-holder">
-                                <div class="title-holder-cell text-left">
-                                    <h1 class="page-title">Shop Page</h1>
-                                    <ol class="breadcrumb">
-                                        <li><a href="index.html">Home</a></li>
-                                        <li class="active">Shop</li>
-                                    </ol>
+                <!-- header bottom end -->
+            </header>
+            <!-- end header -->
+            <!-- inner page banner -->
+            <div id="inner_banner" class="section inner_banner_section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="full">
+                                <div class="title-holder">
+                                    <div class="title-holder-cell text-left">
+                                        <h1 class="page-title">Shop Page</h1>
+                                        <ol class="breadcrumb">
+                                            <li><a href="index.html">Home</a></li>
+                                            <li class="active">Shop</li>
+                                        </ol>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- end inner page banner -->
-        <!-- section -->
-        <div class="section padding_layout_1 product_list_main">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-9">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
-                                <div class="product_list">
-                                    <div class="product_img"> <img class="img-responsive" src="images/it_service/1.jpg" alt=""> </div>
-                                    <div class="product_detail_btm">
-                                        <div class="center">
-                                            <h4><a href="it_shop_detail.html">Norton Internet Security</a></h4>
+            <!-- end inner page banner -->
+            <!-- section -->
+            <div class="section padding_layout_1 product_list_main">
+                <div class="container">
+                    <div class="row">
+
+
+
+                        <div class="col-md-9">
+                            <div class="row">
+                            <c:forEach items="${listSP}" var="sp">
+                                <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
+                                    <div class="product_list">
+                                        <div class="product_img">
+                                            <c:forEach items="${sp.listimage}" var="img" varStatus="loop">
+                                                <c:if test="${loop.index == 0}">
+                                                    <img class="img-responsive" src="Image//Product//${sp.thuongHieu}//${img.URL}"/>
+                                                </c:if>
+                                            </c:forEach>
                                         </div>
-                                        <div class="starratin">
-                                            <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
-                                        </div>
-                                        <div class="product_price">
-                                            <p><span class="old_price">$15.00</span> – <span class="new_price">$25.00</span></p>
+                                        <div class="product_detail_btm">
+                                            <div class="center">
+                                                <h4><a href="">${sp.tenSanPham}</a></h4>
+                                            </div>
+                                            <div class="starratin">
+                                                <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
+                                            </div>
+                                            <div class="product_price">
+                                                <p><span class="new_price">$${sp.kho.giaBan}</span></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </c:forEach>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -142,10 +153,10 @@
                                 <h4>SEARCH</h4>
                                 <div class="side_bar_search">
                                     <div class="input-group stylish-input-group">
-                                        <input class="form-control" placeholder="Search" type="text">
-                                        <span class="input-group-addon">
-                                            <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                                        </span> </div>
+                                        <form>
+                                        <input class="form-control" placeholder="Search Tên Sản Phẩm" type="text" name="keyword" value="<%= request.getParameter("keyword") != null ? request.getParameter("keyword") : ""%>">
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                             <div class="side_bar_blog">
@@ -200,13 +211,155 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="full">
-                            <ul class="brand_list">
-                                <li><img src="images/it_service/brand_icon1.png" alt="#" /></li>
-                                <li><img src="images/it_service/brand_icon2.png" alt="#" /></li>
-                                <li><img src="images/it_service/brand_icon3.png" alt="#" /></li>
-                                <li><img src="images/it_service/brand_icon4.png" alt="#" /></li>
-                                <li><img src="images/it_service/brand_icon5.png" alt="#" /></li>
-                            </ul>
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-center">
+                                    <!--nút Previous-->
+                                    <c:if test="${id ==null && empty gia && empty mau && empty giatrongkhoang && empty giaMin && empty giaMax && page != 1}">
+                                        <li class="page-item">
+                                            <a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?page=${page-1}" tabindex="-1" aria-disabled="true">Previous</a>
+                                        </li>
+                                    </c:if>
+                                    <c:if test="${id != null && empty gia && empty mau && empty giatrongkhoang && empty giaMin && empty giaMax && page != 1}">
+                                        <li class="page-item">
+                                            <a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keyword=<%=request.getParameter("keyword")%>&page=${page-1}" tabindex="-1" aria-disabled="true">Previous</a>
+                                        </li>
+                                    </c:if>
+                                    <c:if test="${ not empty gia  && id == null && empty mau && empty giatrongkhoang && empty giaMin && empty giaMax && page != 1}">
+                                        <li class="page-item">
+                                            <a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keywordGia=<%=request.getParameter("keywordGia")%>&page=${page-1}" tabindex="-1" aria-disabled="true">Previous</a>
+                                        </li>
+                                    </c:if>
+                                    <c:if test="${empty gia && id == null && not empty mau && empty giatrongkhoang && empty giaMin && empty giaMax && page != 1}">
+                                        <li class="page-item">
+                                            <a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keywordMau=<%=request.getParameter("keywordMau")%>&page=${page-1}" tabindex="-1" aria-disabled="true">Previous</a>
+                                        </li>
+                                    </c:if>
+                                    <c:if test="${empty gia && id == null && empty mau && not empty giatrongkhoang && empty giaMin  && empty giaMax &&  page != 1}">
+                                        <li class="page-item">
+                                            <a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keywordGiaTrongKhoan=<%=request.getParameter("keywordGiaTrongKhoan")%>&page=${page-1}" tabindex="-1" aria-disabled="true">Previous</a>
+                                        </li>
+                                    </c:if>
+                                    <c:if test="${empty gia && id == null && empty mau && empty giatrongkhoang && not empty giaMin  && empty giaMax &&  page != 1}">
+                                        <li class="page-item">
+                                            <a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keywordGiaMin=<%=request.getParameter("keywordGiaMin")%>&page=${page-1}" tabindex="-1" aria-disabled="true">Previous</a>
+                                        </li>
+                                    </c:if>
+                                    <c:if test="${gia == null && id == null && empty mau && empty giatrongkhoang && empty giaMin  && not empty giaMax &&  page != 1}">
+                                        <li class="page-item">
+                                            <a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keywordGiaMax=<%=request.getParameter("keywordGiaMax")%>&page=${page-1}" tabindex="-1" aria-disabled="true">Previous</a>
+                                        </li>
+                                    </c:if>
+
+                                    <!--Page--> 
+                                    <c:if test="${id == null && empty gia && empty mau && empty giatrongkhoang && empty giaMin && empty giaMax}">
+                                        <c:forEach var="i" begin="1" end="${countPage}">
+                                            <c:choose >
+                                                <c:when test="${page == i}">
+                                                    <li class="page-item active"><a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?page=${i}">${i}</a></li>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                    <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?page=${i}">${i}</a></li>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </c:forEach>
+                                        </c:if>
+                                        <c:if test="${id != null && empty gia && empty mau && empty giatrongkhoang && empty giaMin && empty giaMax}">
+                                            <c:forEach var="i" begin="1" end="${countPage}">
+                                                <c:choose >
+                                                    <c:when test="${page == i}">
+                                                    <li class="page-item active"><a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keyword=<%=request.getParameter("keyword")%>&page=${i}">${i}</a></li>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                    <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keyword=<%=request.getParameter("keyword")%>&page=${i}">${i}</a></li>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </c:forEach>
+                                        </c:if>  
+                                        <c:if test="${not empty gia && id == null && empty mau && empty giatrongkhoang && empty giaMin && empty giaMax}">
+                                            <c:forEach var="i" begin="1" end="${countPage}">
+                                                <c:choose >
+                                                    <c:when test="${page == i}">
+                                                    <li class="page-item active"><a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keywordGia=<%=request.getParameter("keywordGia")%>&page=${i}">${i}</a></li>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                    <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keywordGia=<%=request.getParameter("keywordGia")%>&page=${i}">${i}</a></li>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </c:forEach>
+                                        </c:if> 
+                                        <c:if test="${empty gia && id == null && not empty mau && empty giatrongkhoang && empty giaMin && empty giaMax}">
+                                            <c:forEach var="i" begin="1" end="${countPage}">
+                                                <c:choose >
+                                                    <c:when test="${page == i}">
+                                                    <li class="page-item active"><a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keywordMau=<%=request.getParameter("keywordMau")%>&page=${i}">${i}</a></li>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                    <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keywordMau=<%=request.getParameter("keywordMau")%>&page=${i}">${i}</a></li>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </c:forEach>
+                                        </c:if> 
+                                        <c:if test="${empty gia && id == null && empty mau && not empty giatrongkhoang && empty giaMin && empty giaMax}">
+                                            <c:forEach var="i" begin="1" end="${countPage}">
+                                                <c:choose >
+                                                    <c:when test="${page == i}">
+                                                    <li class="page-item active"><a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keywordGiaTrongKhoan=<%=request.getParameter("keywordGiaTrongKhoan")%>&page=${i}">${i}</a></li>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                    <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keywordGiaTrongKhoan=<%=request.getParameter("keywordGiaTrongKhoan")%>&page=${i}">${i}</a></li>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </c:forEach>
+                                        </c:if> 
+                                        <c:if test="${empty gia && id == null && empty mau && empty giatrongkhoang && not empty giaMin && empty giaMax}">
+                                            <c:forEach var="i" begin="1" end="${countPage}">
+                                                <c:choose >
+                                                    <c:when test="${page == i}">
+                                                    <li class="page-item active"><a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keywordGiaMin=<%=request.getParameter("keywordGiaMin")%>&page=${i}">${i}</a></li>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                    <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keywordGiaMin=<%=request.getParameter("keywordGiaMin")%>&page=${i}">${i}</a></li>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </c:forEach>
+                                        </c:if> 
+                                        <c:if test="${empty gia && id == null && empty mau && empty giatrongkhoang && empty giaMin && not empty giaMax}">
+                                            <c:forEach var="i" begin="1" end="${countPage}">
+                                                <c:choose >
+                                                    <c:when test="${page == i}">
+                                                    <li class="page-item active"><a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keywordGiaMin=<%=request.getParameter("keywordGiaMin")%>&page=${i}">${i}</a></li>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                    <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keywordGiaMin=<%=request.getParameter("keywordGiaMin")%>&page=${i}">${i}</a></li>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </c:forEach>
+                                        </c:if>
+
+                                    <!--nút Next-->
+                                    <c:if test="${id == null && empty gia && empty mau && empty giatrongkhoang && empty giaMin && empty giaMax && page < countPage}">
+                                        <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?page=${page+1}">Next</a></li>
+                                        </c:if>
+                                        <c:if test="${id != null && empty gia && empty mau && empty giatrongkhoang && empty giaMin && empty giaMax && page < countPage}">
+                                        <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keyword=<%=request.getParameter("keyword")%>&page=${page+1}">Next</a></li>
+                                        </c:if>
+                                        <c:if test="${not empty gia && id ==null && empty mau && empty giatrongkhoang && empty giaMin && empty giaMax && page < countPage}">
+                                        <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keywordGia=<%=request.getParameter("keywordGia")%>&page=${page+1}">Next</a></li>
+                                        </c:if>
+                                        <c:if test="${empty gia && id ==null && not empty mau && empty giatrongkhoang && empty giaMin && empty giaMax && page < countPage}">
+                                        <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keywordMau=<%=request.getParameter("keywordMau")%>&page=${page+1}">Next</a></li>
+                                        </c:if>
+                                        <c:if test="${empty gia && id ==null && empty mau && not empty giatrongkhoang && empty giaMin && empty giaMax && page < countPage}">
+                                        <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keywordGiaTrongKhoan=<%=request.getParameter("keywordGiaTrongKhoan")%>&page=${page+1}">Next</a></li>
+                                        </c:if>
+                                        <c:if test="${empty gia && id ==null && empty mau && empty giatrongkhoang && not empty giaMin && empty giaMax && page < countPage}">
+                                        <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keywordGiaMin=<%=request.getParameter("keywordGiaMin")%>&page=${page+1}">Next</a></li>
+                                        </c:if>
+                                        <c:if test="${empty gia && id ==null && empty mau && empty giatrongkhoang && empty giaMin && not empty giaMax && page < countPage}">
+                                        <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/SanPhamListServlet?keywordGiaMax=<%=request.getParameter("keywordGiaMax")%>&page=${page+1}">Next</a></li>
+                                        </c:if>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>
