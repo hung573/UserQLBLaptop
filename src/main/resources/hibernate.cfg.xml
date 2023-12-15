@@ -33,7 +33,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this 
         <mapping class = "Beans.HoaDonChiTiet"/>
         <mapping class = "Beans.Image"/>
         <mapping class = "Beans.Kho"/>
-        <mapping class = "Beans.KhuyenMai"/>
         <mapping class = "Beans.Person"/>
         <mapping class = "Beans.Account"/>
         <mapping class = "Beans.Person_KhachHang"/>
