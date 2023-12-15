@@ -5,9 +5,12 @@
 package servlet;
 
 
+import Beans.SanPham;
+import DAL.SPDALHoi;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,7 +26,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = {"/home"})
 public class HomeServlet extends HttpServlet {
 
-    private static final long serialVersionUID = 1L;
+          private static final long serialVersionUID = 1L;
+          private SPDALHoi sanPhamDAL;
+          private  SanPham sanPham;
 
     public HomeServlet() {
         super();
@@ -38,12 +43,12 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-            RequestDispatcher dispatcher = this.getServletContext()
-                .getRequestDispatcher("/Views/Home.jsp");
-        dispatcher.forward(request, response);
+           SPDALHoi sphdal = new SPDALHoi();
+            List<SanPham> list = sphdal.listSanPham();
+        request.setAttribute("list", list);
+        request.getRequestDispatcher("/Views/Home.jsp").forward(request, response);
+                
 
     }
-
 
 }
