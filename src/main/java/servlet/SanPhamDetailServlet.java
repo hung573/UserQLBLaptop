@@ -4,8 +4,11 @@
  */
 package servlet;
 
+import Beans.SanPham;
+import DAL.SPDALGiaHung;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,8 +23,14 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "SanPhamDetailServlet", urlPatterns = {"/SanPhamDetailServlet"})
 public class SanPhamDetailServlet extends HttpServlet {
 
-    private static final long serialVersionUID = 1L;
-
+   private static final long serialVersionUID = 1L;
+    private SPDALGiaHung sanPhamDAL;
+    private  SanPham sanPham;
+    
+    public  void  init(){
+        sanPhamDAL = new SPDALGiaHung();
+        sanPham = new SanPham();
+    }
     public SanPhamDetailServlet() {
         super();
     }
@@ -35,11 +44,10 @@ public class SanPhamDetailServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-            RequestDispatcher dispatcher = this.getServletContext()
-                .getRequestDispatcher("/Views/SanPhamDetail.jsp");
-        dispatcher.forward(request, response);
-
+            List < SanPham > listsp = sanPhamDAL.listSanPham();
+      	    request.setAttribute("list", listsp);
+            request.getServletContext().getRequestDispatcher("/Views/SanPhamDetail.jsp").forward(request, response);
     }
+
 
 }
