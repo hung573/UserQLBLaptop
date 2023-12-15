@@ -60,19 +60,8 @@ public class DonHang implements Serializable {
     @JoinColumn(name = "IdKhachHang",foreignKey = @ForeignKey(name="fk_IdKhachHang_DonHang"), nullable = true, insertable=true, updatable=true)
     private Person_KhachHang khachhang;
     
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "IdKhuyenMai",foreignKey = @ForeignKey(name="fk_IdKhuyenMai_DonHang"), nullable = true, insertable=true, updatable=true)
-    private KhuyenMai khuyenmai;
 
     public DonHang() {
-    }
-
-    public KhuyenMai getKhuyenmai() {
-        return khuyenmai;
-    }
-
-    public void setKhuyenmai(KhuyenMai khuyenmai) {
-        this.khuyenmai = khuyenmai;
     }
 
     public List<DonHangChiTiet> getListdonhangchitiet() {

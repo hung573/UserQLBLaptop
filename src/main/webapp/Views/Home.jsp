@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -115,7 +119,7 @@
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
             </div>
             <div class="product_price">
-              <p><span class="old_price">$15.00</span> ? <span class="new_price">$25.00</span></p>
+              <p><span class="old_price">$15.00</span> – <span class="new_price">$25.00</span></p>
             </div>
           </div>
         </div>
@@ -163,7 +167,7 @@
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
             </div>
             <div class="product_price">
-              <p><span class="old_price">$15.00</span> ? <span class="new_price">$25.00</span></p>
+              <p><span class="old_price">$15.00</span> – <span class="new_price">$25.00</span></p>
             </div>
           </div>
         </div>
@@ -179,7 +183,7 @@
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
             </div>
             <div class="product_price">
-              <p><span class="old_price">$15.00</span> ? <span class="new_price">$25.00</span></p>
+              <p><span class="old_price">$15.00</span> – <span class="new_price">$25.00</span></p>
             </div>
           </div>
         </div>
@@ -227,7 +231,7 @@
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
             </div>
             <div class="product_price">
-              <p><span class="old_price">$15.00</span> ? <span class="new_price">$25.00</span></p>
+              <p><span class="old_price">$15.00</span> – <span class="new_price">$25.00</span></p>
             </div>
           </div>
         </div>
@@ -243,7 +247,7 @@
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
             </div>
             <div class="product_price">
-              <p><span class="old_price">$15.00</span> ? <span class="new_price">$25.00</span></p>
+              <p><span class="old_price">$15.00</span> – <span class="new_price">$25.00</span></p>
             </div>
           </div>
         </div>
@@ -291,7 +295,7 @@
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
             </div>
             <div class="product_price">
-              <p><span class="old_price">$15.00</span> ? <span class="new_price">$25.00</span></p>
+              <p><span class="old_price">$15.00</span> – <span class="new_price">$25.00</span></p>
             </div>
           </div>
         </div>
@@ -417,7 +421,7 @@
         </div>
       </div>
       <div class="cprt">
-        <p>ItNext � Copyrights 2019 Design by html.design</p>
+        <p>ItNext © Copyrights 2019 Design by html.design</p>
       </div>
     </div>
   </div>

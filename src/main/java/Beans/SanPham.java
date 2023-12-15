@@ -58,7 +58,7 @@ public class SanPham implements Serializable{
     @Column
     private String KhoiLuong;
     
-    @OneToMany (fetch = FetchType.EAGER, targetEntity = Image.class, cascade = CascadeType.ALL)
+    @OneToMany (fetch = FetchType.LAZY, targetEntity = Image.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "IdSanPham", nullable = true,insertable=true, updatable=true)
     private List<Image> listimage;
     
