@@ -14,10 +14,10 @@ import org.hibernate.query.Query;
  *
  * @author MY COMPUTER
  */
-public class SPDAL {
+public class SPDALHoi {
     Session session;
 
-    public SPDAL() {
+    public SPDALHoi() {
         this.session = HibernateUtils.getSessionFactory().openSession();
     }
 public List<SanPham> listsanphamhome() {
@@ -42,7 +42,7 @@ public List<SanPham> listsanphamhome() {
 
 
     public static void main(String[] args) {
-    SPDAL dal = new SPDAL();
+    SPDALHoi dal = new SPDALHoi();
     List<SanPham> result = dal.listsanphamhome();
 
     if (result != null) {
