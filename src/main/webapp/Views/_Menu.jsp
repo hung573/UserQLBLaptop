@@ -21,13 +21,8 @@
                         <li><a href="it_home_dark.html">It Dark Home Page</a></li>
                     </ul>
                 </li>
-                <li><a href="it_about.html">About Us</a></li>
-                <li> <a href="it_service.html">Service</a>
-                    <ul>
-                        <li><a href="it_service_list.html">Services list</a></li>
-                        <li><a href="it_service_detail.html">Services Detail</a></li>
-                    </ul>
-                </li>
+                <li><a href="${pageContext.request.contextPath}/DangNhap">Đăng Nhập</a></li>
+                <li> <a href="">Đăng Xuất</a></li>
                 <li> <a href="it_blog.html">Blog</a>
                     <ul>
                         <li><a href="it_blog.html">Blog List</a></li>
@@ -50,6 +45,7 @@
                         <li><a href="${pageContext.request.contextPath}/SanPhamDetailServlet">Shop Detail</a></li>
                         <li><a href="${pageContext.request.contextPath}/CartServlet">Shopping Cart</a></li>
                         <li><a href="${pageContext.request.contextPath}/CheckoutServlet">Checkout</a></li>
+                        <li><a href="${pageContext.request.contextPath}/AccInforServlet">Account Information</a></li>
                     </ul>
                 </li>
                 <li> <a href="it_contact.html">Contact</a>
