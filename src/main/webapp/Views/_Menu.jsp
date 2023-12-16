@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
     <!-- logo start -->
     <div class="logo"> <a href="${pageContext.request.contextPath}/"><img src="images/logos/it_logo.png" alt="logo" /></a> </div>
@@ -21,8 +23,13 @@
                         <li><a href="it_home_dark.html">It Dark Home Page</a></li>
                     </ul>
                 </li>
-                <li><a href="${pageContext.request.contextPath}/DangNhap">Đăng Nhập</a></li>
-                <li> <a href="${pageContext.request.contextPath}/DangXuat">Đăng Xuất</a></li>
+                <c:if test="${session == null}">
+                    <li><a href="${pageContext.request.contextPath}/DangNhap">Đăng Nhập</a></li>
+                </c:if>
+                <c:if test="${session != null}">
+                    <li> <a href="${pageContext.request.contextPath}/DangXuat">Đăng Xuất</a></li>
+                </c:if>
+                
                 <li> <a href="it_blog.html">Blog</a>
                     <ul>
                         <li><a href="it_blog.html">Blog List</a></li>
