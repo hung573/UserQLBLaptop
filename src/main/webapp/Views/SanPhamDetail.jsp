@@ -139,9 +139,74 @@
                                     </div>
                                     <div class="product-detail-side"> <span><del>$25.00</del></span><span class="new-price">$${spdetail.kho.giaBan}</span> <span class="rating"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </span> <span class="review">(5 customer review)</span> </div>
                                     <div class="detail-contant">
-                                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. 
-                                            Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.<br>
-                                            <span class="stock">${spdetail.kho.soLuong} stock</span> </p>
+                                        <p>
+
+                                        <style>
+                                            .product-thongtin {
+                                                display: flex;
+                                                align-items: center;
+                                                margin-bottom: 10px;
+                                            }
+
+                                            .label {
+                                                font-weight: bold;
+                                                margin-right: 10px;
+                                                flex-basis: 100px; /* Điều chỉnh kích thước cố định của label nếu cần */
+                                            }
+
+                                            .value {
+                                                flex-grow: 1;
+                                            }
+                                        </style>
+                                        <div class="product-thongtin">
+                                            <div class="label">Thương Hiệu:</div>
+                                            <div class="value">${spdetail.thuongHieu}</div>
+                                        </div>
+                                        <div class="product-thongtin">
+                                            <div class="label">Màu:</div>
+                                            <div class="value">${spdetail.mau}</div>
+                                        </div>
+                                        <div class="product-thongtin">
+                                            <div class="label">Series LapTop:</div>
+                                            <div class="value">${spdetail.seriesLapTop}</div>
+                                        </div>
+                                        <div class="product-thongtin">
+                                            <div class="label">CPU:</div>
+                                            <div class="value">${spdetail.CPU}</div>
+                                        </div>
+                                        <div class="product-thongtin">
+                                            <div class="label">Đồ họa:</div>
+                                            <div class="value">${spdetail.doHoa}</div>
+                                        </div>
+                                        <div class="product-thongtin">
+                                            <div class="label">Đồ họa rời:</div>
+                                            <div class="value">${spdetail.doHoaRoi}</div>
+                                        </div> 
+                                        <div class="product-thongtin">
+                                            <div class="label">Ram:</div>
+                                            <div class="value">${spdetail.RAM}</div>
+                                        </div>
+                                        <div class="product-thongtin">
+                                            <div class="label">Bộ nhớ:</div>
+                                            <div class="value">${spdetail.boNho}</div>
+                                        </div>
+                                        <div class="product-thongtin">
+                                            <div class="label">Kích thước màn hình:</div>
+                                            <div class="value">${spdetail.KTManHinh}</div>
+                                        </div>
+                                        <div class="product-thongtin">
+                                            <div class="label">Khối lượng:</div>
+                                            <div class="value">${spdetail.khoiLuong}</div>
+                                        </div>
+
+                                        <div class="product-thongtin">
+                                            <div class="label">Màn cảm ứng:</div>
+                                            <div class="value">${spdetail.MHCamUng}</div>
+                                        </div>
+                                        </p>
+
+                                        <br>
+                                        <span class="stock">${spdetail.kho.soLuong} stock</span> </p>
                                         <form class="cart" method="post" action="it_cart.html">
                                             <div class="quantity">
                                                 <input step="1" min="1" max="5" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" type="number">
