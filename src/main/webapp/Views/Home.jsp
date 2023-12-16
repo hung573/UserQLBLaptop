@@ -120,7 +120,7 @@
                                 </div>
                                 <div class="product_detail_btm">
                                     <div class="center">
-                                        <h4><a href="it_shop_detail.html">${sp.tenSanPham}</a></h4>
+                                        <h4><a href="${pageContext.request.contextPath}/SanPhamDetailServlet?idSanPham=<c:out value='${sp.idSanPham}'/>">${sp.tenSanPham}</a></h4>
                                     </div>
                                     <div class="starratin">
                                         <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>

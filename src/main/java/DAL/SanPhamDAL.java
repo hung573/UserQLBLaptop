@@ -15,12 +15,63 @@ import org.hibernate.query.Query;
  *
  * @author mac
  */
-public class SPDALCongHung {
+public class SanPhamDAL {
     Session session;
-    public SPDALCongHung(){
-        session = HibernateUtils.getSessionFactory().openSession();
+
+    public SanPhamDAL() {
+        this.session = HibernateUtils.getSessionFactory().openSession();
     }
-    @SuppressWarnings("unchecked") 
+    public List<Beans.SanPham> listSanPhamHome() {
+        
+        Transaction transaction = null;
+        List<Beans.SanPham> sanphamList = new ArrayList<>();
+        try {
+            transaction = session.beginTransaction();
+            Query query = session.createQuery("from SanPham ORDER BY RAND() ");    
+            query.setMaxResults(8);
+            sanphamList = query.list();
+
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        return sanphamList;
+    }
+    public SanPham getSanPham(String IdSanPham){
+        Transaction transaction = null;
+        SanPham sp = null;
+        try {
+            transaction = session.beginTransaction();
+            sp = session.get(SanPham.class, IdSanPham);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+        }
+        return sp;
+    }
+    public List<SanPham> listSanPhamDetail() {
+        Transaction transaction = null;
+        List<SanPham> sanphamList = new ArrayList<>();
+        try {
+            transaction = session.beginTransaction();
+            Query query = session.createQuery("from SanPham ORDER BY RAND()");    
+            query.setMaxResults(3);
+            sanphamList = query.list();
+
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        return sanphamList;
+    }
     public List<SanPham> listSanPham(int limit, int page) {
         Transaction transaction = null;
         List<SanPham> sanphamList = new ArrayList<>();

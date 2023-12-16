@@ -4,9 +4,8 @@
  */
 package servlet;
 
-
 import Beans.SanPham;
-import DAL.SPDALHoi;
+import DAL.SanPhamDAL;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -18,7 +17,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 /**
  *
  * @author mac
@@ -26,9 +24,14 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = {"/home"})
 public class HomeServlet extends HttpServlet {
 
-          private static final long serialVersionUID = 1L;
-          private SPDALHoi sanPhamDAL;
-          private  SanPham sanPham;
+    private static final long serialVersionUID = 1L;
+    private SanPhamDAL sanPhamDAL;
+    private SanPham sanPham;
+
+    public void init() {
+        sanPhamDAL = new SanPhamDAL();
+        sanPham = new SanPham();
+    }
 
     public HomeServlet() {
         super();
@@ -43,11 +46,10 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-           SPDALHoi sphdal = new SPDALHoi();
-            List<SanPham> list = sphdal.listSanPham();
+
+        List<SanPham> list = sanPhamDAL.listSanPhamHome();
         request.setAttribute("list", list);
         request.getRequestDispatcher("/Views/Home.jsp").forward(request, response);
-                
 
     }
 

@@ -5,7 +5,7 @@
 package servlet;
 
 import Beans.SanPham;
-import DAL.SPDALCongHung;
+import DAL.SanPhamDAL;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -26,13 +26,13 @@ import javax.servlet.http.HttpServletResponse;
 public class SanPhamListServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    private SPDALCongHung sPDALCongHung;
+    private SanPhamDAL sPDALCongHung;
     private SanPham sanPham;
     public SanPhamListServlet() {
         super();
     }
     public  void  init(){
-        sPDALCongHung = new SPDALCongHung();
+        sPDALCongHung = new SanPhamDAL();
         sanPham = new SanPham();
     }
 

@@ -4,6 +4,7 @@
     Author     : mac
 --%>
 
+<%@page import="java.util.Arrays"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -133,7 +134,7 @@
                                         </div>
                                         <div class="product_detail_btm">
                                             <div class="center">
-                                                <h4><a href="">${sp.tenSanPham}</a></h4>
+                                                <h4><a href="${pageContext.request.contextPath}/SanPhamDetailServlet?idSanPham=<c:out value='${sp.idSanPham}'/>">${sp.tenSanPham}</a></h4>
                                             </div>
                                             <div class="starratin">
                                                 <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
@@ -151,53 +152,91 @@
                         <div class="side_bar">
                             <div class="side_bar_blog">
                                 <h4>SEARCH</h4>
+                                <small>Theo Tên Sản Phẩm</small>
                                 <div class="side_bar_search">
-                                    <div class="input-group stylish-input-group">
-                                        <form>
+                                    <form>
                                         <input class="form-control" placeholder="Search Tên Sản Phẩm" type="text" name="keyword" value="<%= request.getParameter("keyword") != null ? request.getParameter("keyword") : ""%>">
-                                        </form>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                             <div class="side_bar_blog">
-                                <h4>GET A QUOTE</h4>
-                                <p>An duo lorem altera gloriatur. No imperdiet adver sarium pro. No sit sumo lorem. Mei ea eius elitr consequ unturimperdiet.</p>
-                                <a class="btn sqaure_bt" href="it_service.html">View Service</a> </div>
+                                <small>Theo Giá Sản Phẩm</small>
+                                <div class="side_bar_search">
+                                    <form>
+                                        <input class="form-control" placeholder="Search Theo Giá Sản Phẩm" type="text" name="keywordGia" value="<%= request.getParameter("keywordGia") != null ? request.getParameter("keywordGia") : ""%>">
+                                    </form>
+                                </div>
+                            </div>
+
                             <div class="side_bar_blog">
-                                <h4>OUR SERVICE</h4>
+                                <small>Theo Màu Sản Phẩm</small>
                                 <div class="categary">
-                                    <ul>
-                                        <li><a href="it_data_recovery.html"><i class="fa fa-angle-right"></i> Data recovery</a></li>
-                                        <li><a href="it_computer_repair.html"><i class="fa fa-angle-right"></i> Computer repair</a></li>
-                                        <li><a href="it_mobile_service.html"><i class="fa fa-angle-right"></i> Mobile service</a></li>
-                                        <li><a href="it_network_solution.html"><i class="fa fa-angle-right"></i> Network solutions</a></li>
-                                        <li><a href="it_techn_support.html"><i class="fa fa-angle-right"></i> Technical support</a></li>
-                                    </ul>
+                                    <form>
+                                        <label>
+                                            <input type="radio" name="keywordMau" value="Xám" <%= (request.getParameterValues("keywordMau") != null && Arrays.asList(request.getParameterValues("keywordMau")).contains("Xám")) ? "checked" : ""%>> Xám
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="keywordMau" value="Vàng" <%= (request.getParameterValues("keywordMau") != null && Arrays.asList(request.getParameterValues("keywordMau")).contains("Vàng")) ? "checked" : ""%>> Vàng
+                                        </label>
+                                        <button style="display: none;" class="btn btn-outline-success" type="submit">Tìm kiếm</button>
+                                    </form>
                                 </div>
                             </div>
                             <div class="side_bar_blog">
-                                <h4>RECENT NEWS</h4>
+                                <small>Gia Trong Khoảng</small>
                                 <div class="categary">
-                                    <ul>
-                                        <li><a href="it_data_recovery.html"><i class="fa fa-angle-right"></i> Land lights let be divided</a></li>
-                                        <li><a href="it_computer_repair.html"><i class="fa fa-angle-right"></i> Seasons over bearing air</a></li>
-                                        <li><a href="it_mobile_service.html"><i class="fa fa-angle-right"></i> Greater open after grass</a></li>
-                                        <li><a href="it_network_solution.html"><i class="fa fa-angle-right"></i> Gathered was divide second</a></li>
-                                    </ul>
+                                    <form>
+                                        <label>
+                                            <input type="radio" name="keywordGiaTrongKhoan" value="0-10000" <%= (request.getParameterValues("keywordGiaTrongKhoan") != null && Arrays.asList(request.getParameterValues("keywordGiaTrongKhoan")).contains("0-10000")) ? "checked" : ""%>> 0-10000
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="keywordGiaTrongKhoan" value="10000-20000" <%= (request.getParameterValues("keywordGiaTrongKhoan") != null && Arrays.asList(request.getParameterValues("keywordGiaTrongKhoan")).contains("10000-20000")) ? "checked" : ""%>>10000-20000
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="keywordGiaTrongKhoan" value="20000-30000" <%= (request.getParameterValues("keywordGiaTrongKhoan") != null && Arrays.asList(request.getParameterValues("keywordGiaTrongKhoan")).contains("20000-30000")) ? "checked" : ""%>> 20000-30000
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="keywordGiaTrongKhoan" value="30000-40000" <%= (request.getParameterValues("keywordGiaTrongKhoan") != null && Arrays.asList(request.getParameterValues("keywordGiaTrongKhoan")).contains("30000-40000")) ? "checked" : ""%>> 30000-40000
+                                        </label>
+                                        <button style="display: none;" class="btn btn-outline-success" type="submit">Tìm kiếm</button>
+                                    </form>
                                 </div>
                             </div>
                             <div class="side_bar_blog">
-                                <h4>TAG</h4>
-                                <div class="tags">
-                                    <ul>
-                                        <li><a href="#">Bootstrap</a></li>
-                                        <li><a href="#">HTML5</a></li>
-                                        <li><a href="#">Wordpress</a></li>
-                                        <li><a href="#">Bootstrap</a></li>
-                                        <li><a href="#">HTML5</a></li>
-                                    </ul>
+                                <small>Gía Nhỏ Hơn</small>
+                                <div class="categary">
+                                    <form>
+                                        <label>
+                                            <input type="radio" name="keywordGiaMin" value="10000" <%= (request.getParameterValues("keywordGiaMin") != null && Arrays.asList(request.getParameterValues("keywordGiaMin")).contains("10000")) ? "checked" : ""%>> 10000
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="keywordGiaMin" value="30000" <%= (request.getParameterValues("keywordGiaMin") != null && Arrays.asList(request.getParameterValues("keywordGiaMin")).contains("30000")) ? "checked" : ""%>>300000
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="keywordGiaMin" value="50000" <%= (request.getParameterValues("keywordGiaMin") != null && Arrays.asList(request.getParameterValues("keywordGiaMin")).contains("50000")) ? "checked" : ""%>> 50000
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="keywordGiaMin" value="70000" <%= (request.getParameterValues("keywordGiaMin") != null && Arrays.asList(request.getParameterValues("keywordGiaMin")).contains("70000")) ? "checked" : ""%>> 70000
+                                        </label>
+                                        <button style="display: none;" class="btn btn-outline-success" type="submit">Tìm kiếm</button>
+                                    </form>
                                 </div>
                             </div>
+                            <div class="side_bar_blog">
+                                <small>Gía Lớn Hơn</small>
+                                <div class="categary">
+                                    <form>
+                                        <label>
+                                            <input type="radio" name="keywordGiaMax" value="70000" <%= (request.getParameterValues("keywordGiaMax") != null && Arrays.asList(request.getParameterValues("keywordGiaMax")).contains("70000")) ? "checked" : ""%>> 70000
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="keywordGiaMax" value="100000" <%= (request.getParameterValues("keywordGiaMax") != null && Arrays.asList(request.getParameterValues("keywordGiaMax")).contains("100000")) ? "checked" : ""%>>100000
+                                        </label>
+                                        <button style="display: none;" class="btn btn-outline-success" type="submit">Tìm kiếm</button>
+                                    </form>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
