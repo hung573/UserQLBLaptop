@@ -109,15 +109,13 @@ public class DangNhapServlet extends HttpServlet {
                 dispatcher.forward(request, response);
             } else {
                 Account ac = dangNhapDAL.getIdAccountByUsername(username);
-                Person idPerson = dangNhapDAL.getPerson(username);
                 int idAccouunt = ac.getIdAccount();
-                Person_KhachHang psNhanVien = dangNhapDAL.getPerson_KhachHang(username);
+                Person_KhachHang psNhanVien = dangNhapDAL.getIDPerson_KhachHang(idAccouunt);
                 boolean checkBoPhan = dangNhapDAL.CheckBoPhan(psNhanVien.getIdPerson());
                 if (checkBoPhan == true) {
                     //Bộ Phận Bán Hàng
                     session.setAttribute("checkBoPhan", checkBoPhan);
                     session.setAttribute("ac", ac);
-                    session.setAttribute("idPerson", idPerson);
                     session.setAttribute("username", username);
                     session.setAttribute("password", password);
                     session.setAttribute("session", session);

@@ -25,18 +25,13 @@
                 </li>
                 <c:if test="${session == null}">
                     <li><a href="${pageContext.request.contextPath}/DangNhap">Đăng Nhập</a></li>
+                    
                 </c:if>
                 <c:if test="${session != null}">
                     <li> <a href="${pageContext.request.contextPath}/DangXuat">Đăng Xuất</a></li>
+                    <li> <a href="${pageContext.request.contextPath}/AccInforServlet">Account Information</a></li>
                 </c:if>
                 
-                <li> <a href="it_blog.html">Blog</a>
-                    <ul>
-                        <li><a href="it_blog.html">Blog List</a></li>
-                        <li><a href="it_blog_grid.html">Blog Grid</a></li>
-                        <li><a href="it_blog_detail.html">Blog Detail</a></li>
-                    </ul>
-                </li>
                 <li> <a href="#">Pages</a>
                     <ul>
                         <li><a href="it_career.html">Career</a></li>

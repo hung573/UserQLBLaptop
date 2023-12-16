@@ -14,8 +14,8 @@
         <div class="full">
             <div class="topbar-left">
                 <ul class="list-inline">
-                    <li> <span class="topbar-label"><i class="fa  fa-home"></i></span> <span class="topbar-hightlight">${idPerson.diaChi}</span> </li>
-                    <li> <span class="topbar-label"><i class="fa fa-envelope-o"></i></span> <span class="topbar-hightlight"><a href="mailto:info@yourdomain.com">${idPerson.email}</a></span> </li>
+                    <li> <span class="topbar-label"><i class="fa  fa-home"></i></span> <span class="topbar-hightlight">${psNhanVien.diaChi}</span> </li>
+                    <li> <span class="topbar-label"><i class="fa fa-envelope-o"></i></span> <span class="topbar-hightlight"><a href="mailto:info@yourdomain.com">${psNhanVien.email}</a></span> </li>
                 </ul>
             </div>
         </div>
@@ -35,7 +35,7 @@
         <div class="float-right">
 
             <div class="make_appo">
-                <a class="btn white_btn" href="make_appointment.html">Account ${idPerson.ten}</a> 
+                <a class="btn white_btn" href="make_appointment.html">Account ${psNhanVien.ten}</a> 
             </div>
 
         </div>

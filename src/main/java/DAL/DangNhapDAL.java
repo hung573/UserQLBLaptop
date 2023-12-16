@@ -7,10 +7,7 @@ package DAL;
 import Beans.Account;
 import Beans.Person;
 import Beans.Person_KhachHang;
-import DAL.HibernateUtils;
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -27,7 +24,7 @@ public class DangNhapDAL {
     public DangNhapDAL() {
         session = HibernateUtils.getSessionFactory().openSession();
     }
-
+//1
     @SuppressWarnings("unchecked")
     public boolean CheckLogin(String username, String password) {
         Transaction transaction = null;
@@ -37,14 +34,14 @@ public class DangNhapDAL {
             transaction = session.beginTransaction();
             String hql = "FROM Account AS ac WHERE ac.UserName = :username AND ac.Password = :password";
             Query<Account> query = session.createQuery(hql, Account.class);
-//            query.setParameter("username", "%"+username+"%");
-//            query.setParameter("password", "%"+password+"%");
+
             query.setParameter("username", username);
             query.setParameter("password", password);
 
             Account account = query.uniqueResult();
-
-            if (account != null) {
+            String check = account.getUserName();
+            String checkkString = check.substring(0, 2);
+            if (account != null && checkkString.equals("KH")) {
                 isAuthenticated = true;
             }
 
@@ -59,47 +56,28 @@ public class DangNhapDAL {
         return isAuthenticated;
     }
 
-    public Account getAccount(int id) {
+    
+    public Person_KhachHang getIDPerson_KhachHang(int id) {
         Transaction transaction = null;
-        Account ac = null;
+        Person_KhachHang person_KhachHang = null;
         try {
-            transaction = session.beginTransaction();
-            ac = session.get(Account.class, id);
+            String hql = "SELECT kh FROM KhachHang kh JOIN kh.account WHERE kh.account.IdAccount = :id";
+
+            Query<Person_KhachHang> query = session.createQuery(hql, Person_KhachHang.class);
+            query.setParameter("id", id);
+            person_KhachHang = query.uniqueResult();
+            
             transaction.commit();
+
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
             }
         }
-        return ac;
+
+        return person_KhachHang;
     }
-
-    public Person getPerson(String username) {
-        Transaction transaction = null;
-        Person person = null;
-
-        try {
-            transaction = session.beginTransaction();
-
-            // Using HQL to create a query
-//            String hql = "FROM Person nv INNER JOIN Account acc ON nv.IdPerson = acc.UserName WHERE acc.UserName = :username";
-            String hql = "FROM Person AS ps WHERE ps.IdPerson = :username";
-
-//            String hql = "FROM NhanVien acc WHERE acc.ChucVu = :idAccount";
-            Query<Person> query = session.createQuery(hql, Person.class);
-            query.setParameter("username", username);
-            person = query.uniqueResult();
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace(); // In lỗi để bạn có thể theo dõi lỗi xảy ra trong quá trình thực thi
-        }
-
-        return person;
-    }
-
+    
     public Account getIdAccountByUsername(String username) {
         Transaction transaction = null;
         Account idAccount = null;
@@ -107,7 +85,6 @@ public class DangNhapDAL {
         try {
             transaction = session.beginTransaction();
 
-            // Using HQL to create a query
             String hql = "FROM Account AS ac WHERE ac.UserName = :username";
             Query<Account> query = session.createQuery(hql, Account.class);
             query.setParameter("username", username);
@@ -120,32 +97,7 @@ public class DangNhapDAL {
                 transaction.rollback();
             }
         }
-
         return idAccount;
-    }
-
-    public Person_KhachHang getPerson_KhachHang(String IdPerson) {
-        Transaction transaction = null;
-        Person_KhachHang person_KhachHang = null;
-
-        try {
-            transaction = session.beginTransaction();
-
-            // Using HQL to create a query
-            String hql = "FROM KhachHang AS nv WHERE nv.IdPerson = :IdPerson";
-            Query<Person_KhachHang> query = session.createQuery(hql, Person_KhachHang.class);
-            query.setParameter("IdPerson", IdPerson);
-
-            person_KhachHang = query.uniqueResult();
-            transaction.commit();
-
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-        }
-
-        return person_KhachHang;
     }
 
     
@@ -157,12 +109,9 @@ public class DangNhapDAL {
         try {
             transaction = session.beginTransaction();
 
-            // Query to check if the username and password match
             String hql = "FROM KhachHang AS nv WHERE nv.IdPerson = :idPerson";
             Query<Person_KhachHang> query = session.createQuery(hql, Person_KhachHang.class);
             query.setParameter("idPerson", idPerson);
-//            query.setParameter("trangthai", "%"+trangthai+"%");
-
             Person_KhachHang p = query.uniqueResult();
             String checkk = p.getIdPerson();
             String checkkString = checkk.substring(0, 2);
@@ -206,8 +155,12 @@ public class DangNhapDAL {
 
     public static void main(String[] args) {
         DangNhapDAL dangNhapDAL = new DangNhapDAL();
+        Account ac = dangNhapDAL.getIdAccountByUsername("KH2350247953213");
+        int accString= ac.getIdAccount();
+        Person_KhachHang ps = dangNhapDAL.getIDPerson_KhachHang(accString);
+        System.out.println(ps.getIdPerson());
+        System.out.println(ac.getIdAccount());
         System.out.println(dangNhapDAL.CheckLogin("KH2350247953213", "KH@2350247953213"));
-        System.out.println(dangNhapDAL.CheckBoPhan("KH2350247953213"));
 
     }
 }
