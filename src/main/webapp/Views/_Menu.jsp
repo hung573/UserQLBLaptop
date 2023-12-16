@@ -22,7 +22,7 @@
                     </ul>
                 </li>
                 <li><a href="${pageContext.request.contextPath}/DangNhap">Đăng Nhập</a></li>
-                <li> <a href="">Đăng Xuất</a></li>
+                <li> <a href="${pageContext.request.contextPath}/DangXuat">Đăng Xuất</a></li>
                 <li> <a href="it_blog.html">Blog</a>
                     <ul>
                         <li><a href="it_blog.html">Blog List</a></li>

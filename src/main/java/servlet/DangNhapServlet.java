@@ -149,9 +149,7 @@ public class DangNhapServlet extends HttpServlet {
 //            session.removeAttribute("password");
             session.invalidate();
 
-            RequestDispatcher dispatcher = request.getServletContext().
-                    getRequestDispatcher("/Views/Home.jsp");
-            dispatcher.forward(request, response);
+            response.sendRedirect("home");
         } finally {
             logout.close();
         }
