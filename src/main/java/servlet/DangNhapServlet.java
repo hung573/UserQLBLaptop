@@ -78,6 +78,7 @@ public class DangNhapServlet extends HttpServlet {
 
     private void DangNhap(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
+        response.setContentType("text/html;charset=UTF-8");
 
         RequestDispatcher dispatcher = request.getServletContext()
                 .getRequestDispatcher("/Views/DangNhap.jsp");
@@ -139,7 +140,7 @@ public class DangNhapServlet extends HttpServlet {
 
     private void DangXuat(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
-
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter logout = response.getWriter();
         try {
             HttpSession session = request.getSession();
@@ -147,7 +148,11 @@ public class DangNhapServlet extends HttpServlet {
 //            session.removeAttribute("password");
             session.invalidate();
 
+//            RequestDispatcher dispatcher = request.getServletContext()
+//                            .getRequestDispatcher("/Views/Home.jsp");
+//                    dispatcher.forward(request, response);
             response.sendRedirect("home");
+
         } finally {
             logout.close();
         }

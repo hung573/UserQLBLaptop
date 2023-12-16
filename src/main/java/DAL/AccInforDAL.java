@@ -51,7 +51,7 @@ public class AccInforDAL {
         //xóa khách hàng cũ từ database
         session.delete(khh);
         //Thêm khách hàng được sửa vào database
-        session.merge(kh_update);
+        session.save(kh_update);
         session.getTransaction().commit();
         return true;
     
