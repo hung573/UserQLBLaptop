@@ -4,18 +4,11 @@
         <servlet-name>HomeServlet</servlet-name>
         <servlet-class>servlet.HomeServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>CheckoutServlet</servlet-name>
-        <servlet-class>servlet.CheckoutServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/HomeServlet</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CheckoutServlet</servlet-name>
-        <url-pattern>/CheckoutServlet</url-pattern>
-    </servlet-mapping>
+
     <session-config>
         <session-timeout>
             30

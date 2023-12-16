@@ -48,8 +48,8 @@
                     <ul>
                         <li><a href="${pageContext.request.contextPath}/SanPhamListServlet">Shop List</a></li>
                         <li><a href="${pageContext.request.contextPath}/SanPhamDetailServlet">Shop Detail</a></li>
-                        <li><a href="it_cart.html">Shopping Cart</a></li>
-                        <li><a href="it_checkout.html">Checkout</a></li>
+                        <li><a href="${pageContext.request.contextPath}/CartServlet">Shopping Cart</a></li>
+                        <li><a href="${pageContext.request.contextPath}/CheckoutServlet">Checkout</a></li>
                     </ul>
                 </li>
                 <li> <a href="it_contact.html">Contact</a>
