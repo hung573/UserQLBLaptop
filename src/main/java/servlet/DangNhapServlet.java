@@ -5,6 +5,7 @@
 package servlet;
 
 import Beans.Account;
+import Beans.Image;
 import Beans.Person;
 import Beans.Person_KhachHang;
 import DAL.DangNhapDAL;
@@ -25,7 +26,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author mac
  */
-@WebServlet(urlPatterns = {"/DangNhap", "/DangXuat", "/login"})
+@WebServlet(urlPatterns = {"/DangNhap", "/DangXuat", "/login","/DangKyForm","/DangKy"})
 
 public class DangNhapServlet extends HttpServlet {
 
@@ -66,6 +67,12 @@ public class DangNhapServlet extends HttpServlet {
                 case "/login":
                     Logiin(request, response);
                     break;
+                case "/DangKyForm":
+                    DangKyForm(request, response);
+                    break;
+                case "/DangKy":
+                    DangKy(request, response);
+                    break;
                 default:
                     DangNhap(request, response);
                     break;
@@ -84,7 +91,65 @@ public class DangNhapServlet extends HttpServlet {
                 .getRequestDispatcher("/Views/DangNhap.jsp");
         dispatcher.forward(request, response);
     }
+    private void DangKyForm(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException, ServletException {
+        
+        RequestDispatcher dispatcher = request.getServletContext()
+                .getRequestDispatcher("/Views/DangKy.jsp");
+        dispatcher.forward(request, response);
+    }
+    private void DangKy(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException, ServletException {
+        response.setContentType("text/html;charset=UTF-8");
+        String erro = null;
+        Person_KhachHang khachhang = new Person_KhachHang();
+        String ten = request.getParameter("ten");
+        String email = request.getParameter("email");
+        String diachi = request.getParameter("diachi");
+        String sdt = request.getParameter("sdt");
+//           Lấy thông tin từ form đăng ký
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String xephang ="1";
+        double tichluy=0;
+        // Kiểm tra cơ bản
+        
+        khachhang.setTen(ten);
+        khachhang.setEmail(email);
+        khachhang.setDiaChi(diachi);
+        khachhang.setSDT(sdt);
+        khachhang.setXepHang(xephang);
+        khachhang.setDiemTichLy(tichluy);
+        khachhang.setIdPerson();
+        
+        Account acc= new Account();
+        acc.setUserName(username);
+        acc.setPassword(password);
+        khachhang.setAccount(acc);
+        
+        Image img = new Image();
+        img.setURL("");
+        khachhang.setImage(img);
+        DangNhapDAL dangNhapDAL = new DangNhapDAL();
+        
+        // Lưu người dùng đã tồn tại hay chưa
+        boolean isSuccess = dangNhapDAL.isUsernameExists(username);
 
+        if (isSuccess == false) {
+            // Chuyển hướng đến trang đăng nhập với thông báo thành công
+            dangNhapDAL.addKhachHang(khachhang);
+            dangNhapDAL.addAccount(acc);
+            erro = "Bạn đã đăng ký thành công, bạn có thể đăng nhập";
+            request.setAttribute("error", erro);
+            request.getRequestDispatcher("/Views/DangKy.jsp").forward(request, response);
+        } else {
+            // Chuyển hướng đến trang đăng ký với thông báo lỗi
+            erro = "Bạn đã đăng ký thất bại vì tài khoản này đã tồn tại";
+            request.setAttribute("error", erro);
+            request.getRequestDispatcher("/Views/DangKy.jsp").forward(request, response);
+        }
+        
+    }
     private void Logiin(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         try {

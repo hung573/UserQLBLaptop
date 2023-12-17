@@ -25,7 +25,7 @@
                 </li>
                 <c:if test="${session == null}">
                     <li><a href="${pageContext.request.contextPath}/DangNhap">Đăng Nhập</a></li>
-                    
+                    <li><a href="${pageContext.request.contextPath}/DangKyForm">Đăng Ký</a></li>
                 </c:if>
                 <c:if test="${session != null}">
                     <li> <a href="${pageContext.request.contextPath}/DangXuat">Đăng Xuất</a></li>

@@ -5,7 +5,6 @@
 package DAL;
 
 import Beans.Account;
-import Beans.Person;
 import Beans.Person_KhachHang;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +40,8 @@ public class DangNhapDAL {
             Account account = query.uniqueResult();
             String check = account.getUserName();
             String checkkString = check.substring(0, 2);
-            if (account != null && checkkString.equals("KH")) {
+            if (account != null && checkkString.equals("KH") || !checkkString.equals("BH") ||
+                    !checkkString.equals("KV")) {
                 isAuthenticated = true;
             }
 
@@ -152,14 +152,57 @@ public class DangNhapDAL {
         }
         return sanphamList;
     }
+    
+    public boolean addAccount(Account account) {
+        Transaction transaction = null;
+        boolean isSuccess = false;
+        try {
+            transaction = session.beginTransaction();
+
+            // Kiểm tra xem tài khoản đã tồn tại chưa
+            if (isUsernameExists(account.getUserName()) == false) {
+                // Thêm tài khoản mới
+                session.save(account);
+                isSuccess = true;
+            } else { 
+                isSuccess = false;
+                System.out.println("Tài khoản đã tồn tại!");
+            }
+             transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+
+        return isSuccess;
+    }
+    public boolean isUsernameExists(String username) {
+        String hql = "SELECT COUNT(*) FROM Account AS ac WHERE ac.UserName = :username";
+        long count = (Long) session.createQuery(hql)
+                .setParameter("username", username)
+                .uniqueResult();
+
+        return count > 0;
+    }
+    public boolean addKhachHang(Person_KhachHang kh)
+    {
+        session.beginTransaction();
+        session.save(kh);
+        session.getTransaction().commit();
+        return true;
+    }
 
     public static void main(String[] args) {
         DangNhapDAL dangNhapDAL = new DangNhapDAL();
         Account ac = dangNhapDAL.getIdAccountByUsername("KH2350247953213");
         int accString= ac.getIdAccount();
         Person_KhachHang ps = dangNhapDAL.getIDPerson_KhachHang(accString);
+        String user =  ac.getUserName();
+        System.out.println("kiemtra: "+dangNhapDAL.isUsernameExists("KHmax123"));
         System.out.println(ps.getIdPerson());
-        System.out.println(ac.getIdAccount());
+        System.out.println(ac.getUserName());
         System.out.println(dangNhapDAL.CheckLogin("KH2350247953213", "KH@2350247953213"));
 
     }
