@@ -20,21 +20,21 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <!-- site icons -->
-        <link rel="icon" href="images/fevicon/fevicon.png" type="image/gif" />
+        <link rel="icon" href="${pageContext.request.contextPath}/images/fevicon/fevicon.png" type="image/gif" />
         <!-- bootstrap css -->
-        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}/css/bootstrap.min.css" />
         <!-- Site css -->
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}/css/style.css" />
         <!-- responsive css -->
-        <link rel="stylesheet" href="css/responsive.css" />
+        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}/css/responsive.css" />
         <!-- colors css -->
-        <link rel="stylesheet" href="css/colors1.css" />
+        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}/css/colors1.css" />
         <!-- custom css -->
-        <link rel="stylesheet" href="css/custom.css" />
+        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}/css/custom.css" />
         <!-- wow Animation css -->
-        <link rel="stylesheet" href="css/animate.css" />
+        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}/css/animate.css" />
         <!-- zoom effect -->
-        <link rel='stylesheet' href='css/hizoom.css'>
+        <link rel='stylesheet' href='http://localhost:8080/${pageContext.request.contextPath}/css/hizoom.css'>
         <!-- end zoom effect -->
         <!--[if lt IE 9]>
               <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -43,7 +43,7 @@
     </head>
     <body id="default_theme" class="it_serv_shopping_cart shopping-cart">
         <!-- loader -->
-        <div class="bg_load"> <img class="loader_animation" src="images/loaders/loader_1.png" alt="#" /> </div>
+        <div class="bg_load"> <img class="loader_animation" src="${pageContext.request.contextPath}/images/loaders/loader_1.png" alt="#" /> </div>
         <!-- end loader -->
         <!-- header -->
         <header id="default_header" class="header_style_1">
@@ -105,7 +105,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="col-sm-8 col-md-6"><div class="media"> <a class="thumbnail pull-left" href="#"> <img class="media-object" src="images/it_service/1.jpg" alt="#"></a>
+                                        <td class="col-sm-8 col-md-6"><div class="media"> <a class="thumbnail pull-left" href="#"> <img class="media-object" src="${pageContext.request.contextPath}/images/it_service/1.jpg" alt="#"></a>
                                                 <div class="media-body">
                                                     <h4 class="media-heading"><a href="#">Norton Internet Security</a></h4>
                                                     <span>Status: </span><span class="text-success">In Stock</span> </div>
@@ -117,7 +117,7 @@
                                         <td class="col-sm-1 col-md-1"><button type="button" class="bt_main"><i class="fa fa-trash"></i> Remove</button></td>
                                     </tr>
                                     <tr>
-                                        <td class="col-md-6"><div class="media"> <a class="thumbnail pull-left" href="#"> <img class="media-object" src="images/it_service/2.jpg" alt="#"></a>
+                                        <td class="col-md-6"><div class="media"> <a class="thumbnail pull-left" href="#"> <img class="media-object" src="${pageContext.request.contextPath}/images/it_service/2.jpg" alt="#"></a>
                                                 <div class="media-body">
                                                     <h4 class="media-heading"><a href="#">Kaspersky Internet Security</a></h4>
                                                     <span>Status: </span><span class="text-danger">Out Stock</span> </div>
@@ -129,7 +129,7 @@
                                         <td class="col-md-1"><button type="button" class="bt_main"><i class="fa fa-trash"></i> Remove</button></td>
                                     </tr>
                                     <tr>
-                                        <td class="col-sm-8 col-md-6"><div class="media"> <a class="thumbnail pull-left" href="#"> <img class="media-object" src="images/it_service/3.jpg" alt="#"></a>
+                                        <td class="col-sm-8 col-md-6"><div class="media"> <a class="thumbnail pull-left" href="#"> <img class="media-object" src="${pageContext.request.contextPath}/images/it_service/3.jpg" alt="#"></a>
                                                 <div class="media-body">
                                                     <h4 class="media-heading"><a href="#">Mcafee Livesafe Antivirus</a></h4>
                                                     <span>Status: </span><span class="text-success">In Stock</span> </div>
@@ -141,7 +141,7 @@
                                         <td class="col-sm-1 col-md-1"><button type="button" class="bt_main"><i class="fa fa-trash"></i> Remove</button></td>
                                     </tr>
                                     <tr>
-                                        <td class="col-md-6"><div class="media"> <a class="thumbnail pull-left" href="#"> <img class="media-object" src="images/it_service/4.jpg" alt="#"></a>
+                                        <td class="col-md-6"><div class="media"> <a class="thumbnail pull-left" href="#"> <img class="media-object" src="${pageContext.request.contextPath}/images/it_service/4.jpg" alt="#"></a>
                                                 <div class="media-body">
                                                     <h4 class="media-heading"><a href="#">Norton Internet Security</a></h4>
                                                     <span>Status: </span><span class="text-danger">Out Stock</span> </div>
@@ -226,7 +226,7 @@
                                         <div class="testimonial-container">
                                             <div class="testimonial-content"> You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. 
                                                 I am really satisfied with my first laptop service. </div>
-                                            <div class="testimonial-photo"> <img src="images/it_service/client1.jpg" class="img-responsive" alt="#" width="150" height="150"> </div>
+                                            <div class="testimonial-photo"> <img src="${pageContext.request.contextPath}/images/it_service/client1.jpg" class="img-responsive" alt="#" width="150" height="150"> </div>
                                             <div class="testimonial-meta">
                                                 <h4>Maria Anderson</h4>
                                                 <span class="testimonial-position">CFO, Tech NY</span> </div>
@@ -236,7 +236,7 @@
                                         <div class="testimonial-container">
                                             <div class="testimonial-content"> You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. 
                                                 I am really satisfied with my first laptop service. </div>
-                                            <div class="testimonial-photo"> <img src="images/it_service/client2.jpg" class="img-responsive" alt="#" width="150" height="150"> </div>
+                                            <div class="testimonial-photo"> <img src="${pageContext.request.contextPath}/images/it_service/client2.jpg" class="img-responsive" alt="#" width="150" height="150"> </div>
                                             <div class="testimonial-meta">
                                                 <h4>Maria Anderson</h4>
                                                 <span class="testimonial-position">CFO, Tech NY</span> </div>
@@ -246,7 +246,7 @@
                                         <div class="testimonial-container">
                                             <div class="testimonial-content"> You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. 
                                                 I am really satisfied with my first laptop service. </div>
-                                            <div class="testimonial-photo"> <img src="images/it_service/client3.jpg" class="img-responsive" alt="#" width="150" height="150"> </div>
+                                            <div class="testimonial-photo"> <img src="${pageContext.request.contextPath}/images/it_service/client3.jpg" class="img-responsive" alt="#" width="150" height="150"> </div>
                                             <div class="testimonial-meta">
                                                 <h4>Maria Anderson</h4>
                                                 <span class="testimonial-position">CFO, Tech NY</span> </div>
@@ -270,7 +270,7 @@
                     <div class="col-md-12">
                         <div class="full">
                             <div class="contact_us_section">
-                                <div class="call_icon"> <img src="images/it_service/phone_icon.png" alt="#" /> </div>
+                                <div class="call_icon"> <img src="${pageContext.request.contextPath}/images/it_service/phone_icon.png" alt="#" /> </div>
                                 <div class="inner_cont">
                                     <h2>REQUEST A FREE QUOTE</h2>
                                     <p>Get answers and advice from people you want it from.</p>
@@ -290,11 +290,11 @@
                     <div class="col-md-12">
                         <div class="full">
                             <ul class="brand_list">
-                                <li><img src="images/it_service/brand_icon1.png" alt="#" /></li>
-                                <li><img src="images/it_service/brand_icon2.png" alt="#" /></li>
-                                <li><img src="images/it_service/brand_icon3.png" alt="#" /></li>
-                                <li><img src="images/it_service/brand_icon4.png" alt="#" /></li>
-                                <li><img src="images/it_service/brand_icon5.png" alt="#" /></li>
+                                <li><img src="${pageContext.request.contextPath}/images/it_service/brand_icon1.png" alt="#" /></li>
+                                <li><img src="${pageContext.request.contextPath}/images/it_service/brand_icon2.png" alt="#" /></li>
+                                <li><img src="${pageContext.request.contextPath}/images/it_service/brand_icon3.png" alt="#" /></li>
+                                <li><img src="${pageContext.request.contextPath}/images/it_service/brand_icon4.png" alt="#" /></li>
+                                <li><img src="${pageContext.request.contextPath}/images/it_service/brand_icon5.png" alt="#" /></li>
                             </ul>
                         </div>
                     </div>
@@ -399,14 +399,14 @@
         </footer>
         <!-- end footer -->
         <!-- js section -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <script src="http://localhost:8080/${pageContext.request.contextPath}/js/jquery.min.js"></script>
+        <script src="http://localhost:8080/${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
         <!-- menu js -->
-        <script src="js/menumaker.js"></script>
+        <script src="http://localhost:8080/${pageContext.request.contextPath}/js/menumaker.js"></script>
         <!-- wow animation -->
-        <script src="js/wow.js"></script>
+        <script src="http://localhost:8080/${pageContext.request.contextPath}/js/wow.js"></script>
         <!-- custom js -->
-        <script src="js/custom.js"></script>
+        <script src="http://localhost:8080/${pageContext.request.contextPath}/js/custom.js"></script>
         <script>
 
             // This example adds a marker to indicate the position of Bondi Beach in Sydney,
@@ -517,7 +517,7 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
         <!-- end google map js -->
         <!-- zoom effect -->
-        <script src='js/hizoom.js'></script>
+        <script src='http://localhost:8080/${pageContext.request.contextPath}/js/hizoom.js'></script>
         <script>
             $('.hi1').hiZoom({
                 width: 300,

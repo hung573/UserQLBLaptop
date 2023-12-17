@@ -17,7 +17,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <!-- site icons -->
-        <link rel="icon" href="images/fevicon/fevicon.png" type="image/gif" />
+        <link rel="icon" href="${pageContext.request.contextPath}/images/fevicon/fevicon.png" type="image/gif" />
         <!-- bootstrap css -->
         <link rel="stylesheet" href="css/bootstrap.min.css" />
         <!-- Site css -->
@@ -41,7 +41,7 @@
     </head>
     <body id="default_theme" class="it_service">
         <!-- loader -->
-        <div class="bg_load"> <img class="loader_animation" src="images/loaders/loader_1.png" alt="#" /> </div>
+        <div class="bg_load"> <img class="loader_animation" src="${pageContext.request.contextPath}/images/loaders/loader_1.png" alt="#" /> </div>
         <!-- end loader -->
         <!-- header -->
         <header id="default_header" class="header_style_1">
@@ -89,7 +89,7 @@
                                 <div class="product_img">
                                     <c:forEach items="${sp.listimage}" var="img" varStatus="loop">
                                         <c:if test="${loop.index == 0}">
-                                            <img class="img-responsive" src="Image//Product//${sp.thuongHieu}//${img.URL}"/>
+                                            <img class="img-responsive" src="${pageContext.request.contextPath}/Image/Product/${sp.thuongHieu}/${img.URL}"/>
                                         </c:if>
                                     </c:forEach> 
                                 </div>
@@ -235,26 +235,26 @@
         </footer>
         <!-- end footer -->
         <!-- js section -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <script src="http://localhost:8080/${pageContext.request.contextPath}/js/jquery.min.js"></script>
+        <script src="http://localhost:8080/${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
         <!-- menu js -->
-        <script src="js/menumaker.js"></script>
+        <script src="http://localhost:8080/${pageContext.request.contextPath}/js/menumaker.js"></script>
         <!-- wow animation -->
-        <script src="js/wow.js"></script>
+        <script src="http://localhost:8080/${pageContext.request.contextPath}/js/wow.js"></script>
         <!-- custom js -->
-        <script src="js/custom.js"></script>
+        <script src="http://localhost:8080/${pageContext.request.contextPath}/js/custom.js"></script>
         <!-- revolution js files -->
-        <script src="revolution/js/jquery.themepunch.tools.min.js"></script>
-        <script src="revolution/js/jquery.themepunch.revolution.min.js"></script>
-        <script src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
-        <script src="revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-        <script src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-        <script src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-        <script src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
-        <script src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-        <script src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-        <script src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-        <script src="revolution/js/extensions/revolution.extension.video.min.js"></script>
+        <script src="http://localhost:8080/${pageContext.request.contextPath}/revolution/js/jquery.themepunch.tools.min.js"></script>
+        <script src="http://localhost:8080/${pageContext.request.contextPath}/revolution/js/jquery.themepunch.revolution.min.js"></script>
+        <script src="http://localhost:8080/${pageContext.request.contextPath}/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+        <script src="http://localhost:8080/${pageContext.request.contextPath}/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+        <script src="http://localhost:8080/${pageContext.request.contextPath}/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+        <script src="http://localhost:8080/${pageContext.request.contextPath}/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script src="http://localhost:8080/${pageContext.request.contextPath}/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+        <script src="http://localhost:8080/${pageContext.request.contextPath}/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+        <script src="http://localhost:8080/${pageContext.request.contextPath}/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+        <script src="http://localhost:8080/${pageContext.request.contextPath}/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+        <script src="http://localhost:8080/${pageContext.request.contextPath}/revolution/js/extensions/revolution.extension.video.min.js"></script>
         <!-- map js -->
         <script>
             // This example adds a marker to indicate the position of Bondi Beach in Sydney,

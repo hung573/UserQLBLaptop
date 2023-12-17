@@ -20,21 +20,21 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <!-- site icons -->
-        <link rel="icon" href="images/fevicon/fevicon.png" type="image/gif" />
+        <link rel="icon" href="${pageContext.request.contextPath}/images/fevicon/fevicon.png" type="image/gif" />
         <!-- bootstrap css -->
-        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}css/bootstrap.min.css" />
         <!-- Site css -->
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}css/style.css" />
         <!-- responsive css -->
-        <link rel="stylesheet" href="css/responsive.css" />
+        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}css/responsive.css" />
         <!-- colors css -->
-        <link rel="stylesheet" href="css/colors1.css" />
+        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}css/colors1.css" />
         <!-- custom css -->
-        <link rel="stylesheet" href="css/custom.css" />
+        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}css/custom.css" />
         <!-- wow Animation css -->
-        <link rel="stylesheet" href="css/animate.css" />
+        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}css/animate.css" />
         <!-- zoom effect -->
-        <link rel='stylesheet' href='css/hizoom.css'>
+        <link rel='stylesheet' href='http://localhost:8080/${pageContext.request.contextPath}css/hizoom.css'>
         <!-- end zoom effect -->
         <!--[if lt IE 9]>
               <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -43,7 +43,7 @@
     </head>
     <body id="default_theme" class="it_serv_shopping_cart it_checkout checkout_page">
         <!-- loader -->
-        <div class="bg_load"> <img class="loader_animation" src="images/loaders/loader_1.png" alt="#" /> </div>
+        <div class="bg_load"> <img class="loader_animation" src="${pageContext.request.contextPath}/images/loaders/loader_1.png" alt="#" /> </div>
         <!-- end loader -->
         <!-- header -->
         <header id="default_header" class="header_style_1">
@@ -247,14 +247,14 @@
 </footer>
 <!-- end footer -->
 <!-- js section -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="http://localhost:8080/${pageContext.request.contextPath}/js/jquery.min.js"></script>
+<script src="http://localhost:8080/${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <!-- menu js -->
-<script src="js/menumaker.js"></script>
+<script src="http://localhost:8080/${pageContext.request.contextPath}/js/menumaker.js"></script>
 <!-- wow animation -->
-<script src="js/wow.js"></script>
+<script src="http://localhost:8080/${pageContext.request.contextPath}/js/wow.js"></script>
 <!-- custom js -->
-<script src="js/custom.js"></script>
+<script src="http://localhost:8080/${pageContext.request.contextPath}js/custom.js"></script>
 <script>
 
 // This example adds a marker to indicate the position of Bondi Beach in Sydney,
@@ -365,7 +365,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
 <!-- end google map js -->
 <!-- zoom effect -->
-<script src='js/hizoom.js'></script>
+<script src='http://localhost:8080/${pageContext.request.contextPath}/js/hizoom.js'></script>
 <script>
                                             $('.hi1').hiZoom({
                                                 width: 300,
