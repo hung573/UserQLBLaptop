@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,21 +23,22 @@
         <meta name="author" content="">
         <!-- site icons -->
         <link rel="icon" href="${pageContext.request.contextPath}/images/fevicon/fevicon.png" type="image/gif" />
-        <!-- bootstrap css -->
-        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}css/bootstrap.min.css" />
-        <!-- Site css -->
-        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}css/style.css" />
-        <!-- responsive css -->
-        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}css/responsive.css" />
-        <!-- colors css -->
-        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}css/colors1.css" />
-        <!-- custom css -->
-        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}css/custom.css" />
-        <!-- wow Animation css -->
-        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}css/animate.css" />
-        <!-- zoom effect -->
-        <link rel='stylesheet' href='http://localhost:8080/${pageContext.request.contextPath}css/hizoom.css'>
-        <!-- end zoom effect -->
+         <!--bootstrap css--> 
+        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}/css/bootstrap.min.css" />
+         <!--Site css--> 
+        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}/css/style.css" />
+         <!--responsive css--> 
+        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}/css/responsive.css" />
+         <!--colors css--> 
+        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}/css/colors1.css" />
+         <!--custom css--> 
+        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}/css/custom.css" />
+         <!--wow Animation css--> 
+        <link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}/css/animate.css" />
+         <!--zoom effect--> 
+        <link rel='stylesheet' href='http://localhost:8080/${pageContext.request.contextPath}/css/hizoom.css'>
+         <!--end zoom effect--> 
+
         <!--[if lt IE 9]>
               <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
               <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -254,7 +257,7 @@
 <!-- wow animation -->
 <script src="http://localhost:8080/${pageContext.request.contextPath}/js/wow.js"></script>
 <!-- custom js -->
-<script src="http://localhost:8080/${pageContext.request.contextPath}js/custom.js"></script>
+<script src="http://localhost:8080/${pageContext.request.contextPath}/js/custom.js"></script>
 <script>
 
 // This example adds a marker to indicate the position of Bondi Beach in Sydney,
