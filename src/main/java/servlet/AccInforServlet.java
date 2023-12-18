@@ -101,13 +101,10 @@ public class AccInforServlet extends HttpServlet {
             kh.setSDT(sdt);
             kh.getDiemTichLuy();
             kh.getXepHang();
-            Account acc = new Account();
-            acc.setUserName(username);
-            acc.setPassword(password);
-            kh.setAccount(acc);
-            Part photo = request.getPart("photo");
-            boolean isSuccess = dangNhapDAL.isUsernameExists(username);
-            if (isSuccess == false) {
+            Person_KhachHang ps = dal.getIdAccountByIDpersonNV(idkhachhang);
+            Account acc = ps.getAccount();
+            if (acc.getUserName().equals(username)) {
+                Part photo = request.getPart("photo");
                 if (photo.getSubmittedFileName().equals("")) {
                     Image img = kh.getImage();
                     if (img.getURL().equals("")) {
@@ -156,12 +153,73 @@ public class AccInforServlet extends HttpServlet {
 
                     }
                 }
-
-                request.getRequestDispatcher("/Views/Home.jsp").forward(request, response);
-            } else {
-                String erro = "Tên Username đã tồn tại";
+                String erro = "Bạn đã update thành công. Bạn có thể thấy được thông tin mới khi bạn thoát ra và vào lại";
                 request.setAttribute("erro", erro);
                 request.getRequestDispatcher("/Views/AccInformation.jsp").forward(request, response);
+            } else {
+                Account accc = new Account();
+                accc.setUserName(username);
+                accc.setPassword(password);
+                kh.setAccount(accc);
+                Part photo = request.getPart("photo");
+                boolean isSuccess = dangNhapDAL.isUsernameExists(username);
+                if (isSuccess == false) {
+                    if (photo.getSubmittedFileName().equals("")) {
+                        Image img = kh.getImage();
+                        if (img.getURL().equals("")) {
+                            img.setURL(photo.getSubmittedFileName());
+                            kh.setImage(img);
+                            dal.updateKhachHang(kh);
+                        } else {
+                            dal.updateKhachHang(kh);
+                        }
+                    } else {
+                        Image img = kh.getImage();
+                        if (img.getURL().equals("")) {
+                            img.setURL(kh.getIdPerson() + ".png");
+                            kh.setImage(img);
+
+//                    // đường dẫn thư mục tính từ gốc của website
+                            File dir = new File(request.getServletContext().getRealPath("Image//Customer"));
+//                    //Lưu ảnh được chọn vào folder trước            
+                            File photoFile = new File(dir, photo.getSubmittedFileName());
+                            photo.write(photoFile.getAbsolutePath());
+//                    //Đổi tên ảnh được lưu trc đó thành id nhân viên
+                            File rename = new File(dir, kh.getIdPerson() + ".png");
+                            photoFile.renameTo(rename);
+//                    
+                            dal.updateKhachHang(kh);
+                        } else {
+                            img.setURL(kh.getIdPerson() + ".png");
+                            kh.setImage(img);
+                            dal.updateKhachHang(kh);
+
+                            //Xóa file ảnh trước đó trong folder
+                            // đường dẫn thư mục tính từ gốc của website
+                            File dir = new File(request.getServletContext().getRealPath("Image//Customer"));
+                            if (!dir.exists()) { // tạo nếu chưa tồn tạiup
+                                dir.mkdirs();
+                            }
+                            File photoFile_del = new File(dir, img.getURL());
+                            photoFile_del.delete();
+
+                            //Lưu ảnh được chọn vào folder trước            
+                            File photoFile = new File(dir, photo.getSubmittedFileName());
+                            photo.write(photoFile.getAbsolutePath());
+                            //Đổi tên ảnh được lưu trc đó thành id nhân viên
+                            File rename = new File(dir, kh.getIdPerson() + ".png");
+                            photoFile.renameTo(rename);
+
+                        }
+                    }
+                    String erro = "Bạn đã update thành công. Bạn có thể thấy được thông tin mới khi bạn thoát ra và vào lại";
+                    request.setAttribute("erro", erro);
+                    request.getRequestDispatcher("/Views/AccInformation.jsp").forward(request, response);
+                } else {
+                    String erro = "Tên Username đã tồn tại";
+                    request.setAttribute("erro", erro);
+                    request.getRequestDispatcher("/Views/AccInformation.jsp").forward(request, response);
+                }
             }
 
         } catch (Exception e) {

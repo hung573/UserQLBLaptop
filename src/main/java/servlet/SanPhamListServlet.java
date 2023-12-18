@@ -138,9 +138,9 @@ public class SanPhamListServlet extends HttpServlet {
                 String gianho = giaValues[0].trim();
                 String gialon = giaValues[1].trim();
                 System.out.println("servlet.SanPhamServlet.listSanPham()"+gianho+gialon);
-                ArrayList < SanPham > listsp = sPDALCongHung.findbyGiaBanTrongKhoang(gianho,gialon,3,page);
+                ArrayList < SanPham > listsp = sPDALCongHung.findbyGiaBanTrongKhoang(gianho,gialon,9,page);
                 long countRecord = sPDALCongHung.TinhTongSLSPSearchGiaKhong(gianho,gialon);
-                double countPage = Math.ceil(countRecord/3 +1);
+                double countPage = Math.ceil(countRecord/9 +1);
                 request.setAttribute("listSP", listsp);
                 request.setAttribute("countRecord", countRecord);
                 request.setAttribute("countPage", countPage);
@@ -158,9 +158,9 @@ public class SanPhamListServlet extends HttpServlet {
         }
         else if(gia ==null && tensp == null && mau==null && giatrongkhoang == null&& giaMin != null && giaMax == null){
             for (String giaMinkt : giaMin) {
-                ArrayList < SanPham > listsp = sPDALCongHung.findbyGiaBanMin(giaMinkt,3,page);
+                ArrayList < SanPham > listsp = sPDALCongHung.findbyGiaBanMin(giaMinkt,9,page);
                 long countRecord = sPDALCongHung.TinhTongSLSPSearchGiaMin(giaMinkt);
-                double countPage = Math.ceil(countRecord/3 +1);
+                double countPage = Math.ceil(countRecord/9 +1);
                 request.setAttribute("listSP", listsp);
                 request.setAttribute("countRecord", countRecord);
                 request.setAttribute("countPage", countPage);
@@ -177,9 +177,9 @@ public class SanPhamListServlet extends HttpServlet {
         }
         else if(gia ==null && tensp == null && mau==null && giatrongkhoang == null&& giaMin == null && giaMax != null){
             for (String giaMaxkt : giaMax) {
-                ArrayList < SanPham > listsp = sPDALCongHung.findbyGiaBanMax(giaMaxkt,3,page);
+                ArrayList < SanPham > listsp = sPDALCongHung.findbyGiaBanMax(giaMaxkt,9,page);
                 long countRecord = sPDALCongHung.TinhTongSLSPSearchGiamax(giaMaxkt);
-                double countPage = Math.ceil(countRecord/3 +1);
+                double countPage = Math.ceil(countRecord/9 +1);
                 request.setAttribute("listSP", listsp);
                 request.setAttribute("countRecord", countRecord);
                 request.setAttribute("countPage", countPage);
