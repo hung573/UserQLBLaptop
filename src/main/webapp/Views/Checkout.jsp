@@ -23,19 +23,19 @@
 <!-- site icons -->
 <link rel="icon" href="${pageContext.request.contextPath}/images/fevicon/fevicon.png" type="image/gif" />
 <!-- bootstrap css -->
-<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}/css/bootstrap.min.css" />
 <!-- Site css -->
-<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}/css/style.css" />
 <!-- responsive css -->
-<link rel="stylesheet" href="css/responsive.css" />
+<link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}/css/responsive.css" />
 <!-- colors css -->
-<link rel="stylesheet" href="css/colors1.css" />
+<link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}/css/colors1.css" />
 <!-- custom css -->
-<link rel="stylesheet" href="css/custom.css" />
+<link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}/css/custom.css" />
 <!-- wow Animation css -->
-<link rel="stylesheet" href="css/animate.css" />
+<link rel="stylesheet" href="http://localhost:8080/${pageContext.request.contextPath}/css/animate.css" />
 <!-- zoom effect -->
-<link rel='stylesheet' href='css/hizoom.css'>
+<link rel='stylesheet' href='http://localhost:8080/${pageContext.request.contextPath}/css/hizoom.css'>
 <!-- end zoom effect -->
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
