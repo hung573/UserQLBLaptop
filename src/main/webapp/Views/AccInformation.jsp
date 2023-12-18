@@ -145,11 +145,11 @@
                                 <div class="col-md-6">
                                     <div class="form-field">
                                         <ul style="margin-left: -28px">
-                                            <li style="display: block"> <label class="s-c-l-l-i-l-upload" for="upload-photo" id="drop-photo">
+                                            <li style="display: block"> <label style="cursor: pointer;" class="s-c-l-l-i-l-upload" for="upload-photo" id="drop-photo">
                                                     Thây Đổi Ảnh <small>Nhấn Vào đây</small> <input type="file" name="photo" id="upload-photo" hidden> </label>                                    
                                             </li>
                                             <li style="display: block">
-                                                <input type="button"id="remove-photo" value="Gỡ ảnh"onclick="removeimage()">
+                                                <input type="button"id="remove-photo" style="cursor: pointer;" value="Gỡ ảnh"onclick="removeimage()">
                                             </li>
                                         </ul>
                                     </div>
