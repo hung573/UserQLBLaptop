@@ -4,7 +4,7 @@
     Author     : mac
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -35,7 +35,7 @@
         <div class="float-right">
 
             <div class="make_appo">
-                <a class="btn white_btn" href="make_appointment.html">Account ${psNhanVien.ten}</a> 
+                <a class="btn white_btn" href="${pageContext.request.contextPath}/AccInforServlet">Hello ${psNhanVien.ten}</a> 
             </div>
 
         </div>
