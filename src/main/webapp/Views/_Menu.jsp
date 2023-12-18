@@ -29,18 +29,9 @@
                 </c:if>
                 <c:if test="${session != null}">
                     <li> <a href="${pageContext.request.contextPath}/DangXuat">Đăng Xuất</a></li>
-                    <li> <a href="${pageContext.request.contextPath}/AccInforServlet">Account Information</a></li>
+                    <li> <a href="${pageContext.request.contextPath}/AccInforServlet">Thông tin tài khoản</a></li>
                 </c:if>
                 
-                <li> <a href="#">Pages</a>
-                    <ul>
-                        <li><a href="it_career.html">Career</a></li>
-                        <li><a href="it_price.html">Pricing</a></li>
-                        <li><a href="it_faq.html">Faq</a></li>
-                        <li><a href="it_privacy_policy.html">Privacy Policy</a></li>
-                        <li><a href="it_error.html">Error 404</a></li>
-                    </ul>
-                </li>
                 <li> <a href="it_shop.html">Shop</a>
                     <ul>
                         <li><a href="${pageContext.request.contextPath}/SanPhamListServlet">Shop List</a></li>
@@ -48,12 +39,6 @@
                         <li><a href="${pageContext.request.contextPath}/CartServlet">Shopping Cart</a></li>
                         <li><a href="${pageContext.request.contextPath}/CheckoutServlet">Checkout</a></li>
                         <li><a href="${pageContext.request.contextPath}/AccInforServlet">Account Information</a></li>
-                    </ul>
-                </li>
-                <li> <a href="it_contact.html">Contact</a>
-                    <ul>
-                        <li><a href="it_contact.html">Contact Page 1</a></li>
-                        <li><a href="it_contact_2.html">Contact Page 2</a></li>
                     </ul>
                 </li>
             </ul>
